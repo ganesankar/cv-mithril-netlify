@@ -2,14 +2,6 @@
 A boilerplate Mithril application using ES6, Babel, Webpack 4, Sass/SCSS, Webpack dev server hot reload and eslint
 
 ### How to use
-By using [degit](https://github.com/Rich-Harris/degit)
-```shell
-npx degit dhinesh03/mithril-starter-kit mithril-starter-kit
-or
-git clone https://github.com/dhinesh03/mithril-starter-kit
-```
-or
-[Download the source](https://github.com/dhinesh03/mithril-starter-kit/zipball/master)
 ```shell
 cd mithril-starter-kit
 
