@@ -1,3 +1,5 @@
+
+import Divider  from '../divider';
 export default function() {
     
     
@@ -12,7 +14,7 @@ export default function() {
                 { class: 'hero '},
                 [ 
                     m('h4',title),
-                    m('p',desc),
+                    m.trust(desc)
                 ]),
             ];
         case 'social':
@@ -40,11 +42,28 @@ export default function() {
                     [m('div',
                         {class: 'columns '},
                         vnode.attrs.values.map(function(u) { 
-                            return m('div', {class: 'column col-md-3  col-sm-6 col-xs-12 '},
-                                [ m(`a.btn.btn-link[href=${u.link}][target=_blank]`, 
+                            return m('div', {class: 'column col-3 col-md-3  col-sm-6 col-xs-12 '},
+                                [ m(`a.btn-link[href=${u.link}][target=_blank]`, 
                                     {},
                                     [ m('h4',u.name),m('p',u.desc)])]);      
                                        
+                        }),
+                    )],
+                )],
+            )];
+        case 'profile':
+            return [ m('div',
+                { class: 'container '},
+                [ m('div',
+                    {class: 'container '},
+                    [m('div',
+                        {class: 'columns '},
+                        vnode.attrs.values.map(function(u) { 
+                            return m('div', {class: 'column col-3 col-md-3  col-sm-6 col-xs-12 '},
+                                [ m(`a.btn-link[href=${u.link}][target=_blank]`, 
+                                    {},
+                                    [ m('h4',u.name),m('p',u.desc)])]);      
+                                           
                         }),
                     )],
                 )],
@@ -58,13 +77,13 @@ export default function() {
                         {class: 'columns '},
                         vnode.attrs.values.map(function(u) { 
                            
-                            return m('div', {class: 'column col-6 col-md-6  col-sm-6 col-xs-12 '},
-                                [ m('strong',u.name),
+                            return m('div', {class: 'column col-6 col-md-6  col-sm-6 col-xs-12 pt-2 pb-2'},
+                                [ m('p',[ m('strong',u.name),m('span.text-gray',` ${u.percentage}%`)]),
                                     m('div.bar.bar-sm', 
                                         
                                         [ m(   `div.bar.bar-item[aria-valuenow=${u.percentage}][role=progressbar]`,
                                             {style: `width:${u.percentage}%;`})]),
-                                    m('div',u.percentage),
+                                    
                                 ]);      
                                            
                         }),
@@ -80,7 +99,6 @@ export default function() {
                     [m('div',
                         {class: 'columns '},
                         vnode.attrs.values.map(function(u) { 
-                            console.log(u);
                             return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
                                 [ m('div.card.mb-2', 
                                     
@@ -89,6 +107,8 @@ export default function() {
                                             [ m('div.card-title.h5',u.name),
                                                 m(`a.card-subtitle.text-gray[href=${u.link}][target=_blank]`,u.company),
                                             ]),
+                                        m(Divider, {type: 'date', sdate: u.startdate,edate: u.enddate}),
+                                        
                                         m('div.card-body',u.desc),
                                         m('div.card-footer', 
                                             [
@@ -130,7 +150,11 @@ export default function() {
                                             [ m('div.card-title.h5',u.name),
                                                 m(`a.card-subtitle.text-gray[href=${u.link}][target=_blank]`,u.company),
                                             ]),
+                                        m(Divider, {type: 'date', sdate: u.startdate,edate: u.enddate}),
+                                               
                                         m('div.card-body',u.desc),
+                                        m(Divider, {type: 'text', text: 'Technology Used'}),
+                                       
                                         m('div.card-footer', 
                                             [
                                                 m('div', u.technology.map(function(uv) { 
@@ -154,20 +178,136 @@ export default function() {
                     [m('div',
                         {class: 'columns '},
                         vnode.attrs.values.map(function(u) { 
-                            console.log(u);
                             return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
                                 [ m('div.tile.mb-2', 
                                             
                                     [ 
                                         m('div.tile-content',
-                                            [ m('p.tile-title',u.name),
+                                            [   m(Divider, {type: 'date', sdate: u.startdate,edate: u.enddate}),
+                                                m('h4.tile-title',u.name),
                                                 m('p.tile-subtitle',u.institute),
-                                                m(`p.card-subtitle.text-gray`,u.location),
+                                                m('p.card-subtitle.text-gray',u.location),
                                             ]),
                                         m('div.card-body',u.desc),
                                     ]),
                                 ]);      
                                                    
+                        }),
+                    )],
+                )],
+            )];
+        case 'awards':
+           
+            return [ m('div',
+                { class: 'container '},
+                [ m('div',
+                    {class: 'container '},
+                    [m('div',
+                        {class: 'columns '},
+                        vnode.attrs.values.map(function(u) { 
+                            return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
+                                [ m('div.tile.mb-2', 
+                                                
+                                    [ 
+                                        m('div.tile-content',
+                                            [   m(Divider, {type: 'date', sdate: u.startdate,edate: u.enddate}),
+                                                m('h4.tile-title',u.name),
+                                                m('p.tile-subtitle',u.institute),
+                                                m('p.card-subtitle.text-gray',u.location),
+                                            ]),
+                                       
+                                    ]),
+                                ]);      
+                                                       
+                        }),
+                    )],
+                )],
+            )];
+        case 'otherprojects':
+           
+            return [ m('div',
+                { class: 'container '},
+                [ m('div',
+                    {class: 'container '},
+                    [m('div',
+                        {class: 'columns '},
+                        vnode.attrs.values.map(function(u) { 
+                            return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
+                                [ m('div.tile.mb-2', 
+                                                
+                                    [ 
+                                        m('div.tile-content',
+                                            [    m('h5.tile-title',u.name),
+                                                m(Divider, {type: 'link', portfolio: u.portfolio,link: u.link}),
+                                               
+                                            ]),
+                                       
+                                    ]),
+                                ]);      
+                                                       
+                        }),
+                    )],
+                )],
+            )];
+
+        case 'expertise':
+            let contentdata= [];
+            let groupKey = 'desc';
+            if (vnode.attrs.values && vnode.attrs.values.length > 0) {
+                let newcontentkey = [];
+                let cs = [];
+                vnode.attrs.values.forEach(function(item) {
+                    newcontentkey.push(item[groupKey]);
+                });
+                let uniqkey = Array.from(new Set(newcontentkey));
+                uniqkey.forEach(function(item, index) {
+                    let newOb = { id: index, name: item, values: [] };
+                    vnode.attrs.values.forEach(function(j) {
+                        if (j[groupKey] == item) {
+                            newOb.values.push(j);
+                        }
+                    });
+                    cs.push(newOb);
+                });
+                contentdata = cs;
+            }
+            return [ m('div',
+                { class: 'container '},
+                [ m('div',
+                    {class: 'container '},
+                    [m('div',
+                        {class: 'columns '},
+                        contentdata.map(function(u) { 
+                            return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
+                                [ m('div.tile.mb-2', 
+                                                    
+                                    [ 
+                                        m('div.tile-content',
+                                            [    m('h5.tile-title',u.name),
+                                                m('ol',
+                                                    
+                                                    u.values.map(function(uv) { 
+                                                        return m('li',[    m('strong',uv.name),
+                                                            m('p.pt-1.pb-2',
+                                                            
+                                                                uv.values.map(function(uvx) { 
+                                                                    return m('span.chip',uvx,
+                                                                    );      
+                                                                   
+                                                                }),
+                                                            ),        
+                                                        ],
+                                                        );      
+                                                           
+                                                    }),
+                                                ),
+                                                m(Divider, {type: 'link', portfolio: u.portfolio,link: u.link}),
+                                                   
+                                            ]),
+                                           
+                                    ]),
+                                ]);      
+                                                           
                         }),
                     )],
                 )],
@@ -180,7 +320,7 @@ export default function() {
     return {
         view: function(vnode) {
             return m('div', {
-                class: 'column col-10 col-lg-9 col-sm-12',
+                class: `column col-9 col-lg-9 col-sm-12 ${vnode.attrs.type}`,
             },[
                 m('div', {
                     class: 'page-right-content',

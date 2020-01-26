@@ -20,12 +20,12 @@ export default function() {
         default:
             title = vnode.attrs.name;
         } 
-        return [ m('h4',title),m('p',desc)];
+        return [ m('h4.h4Title',title),m('p',desc)];
     }
     return {
         view: function(vnode) {
             return m('div', {
-                class: 'column col-2 col-lg-3 col-sm-12',
+                class: 'column col-3 col-lg-3 col-sm-12',
             },[
                 m('div', {
                     class: 'page-left-title',
