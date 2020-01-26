@@ -122,7 +122,6 @@ export default function() {
                     [m('div',
                         {class: 'columns '},
                         vnode.attrs.values.map(function(u) { 
-                            console.log(u);
                             return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
                                 [ m('div.card.mb-2', 
                                         
@@ -133,15 +132,42 @@ export default function() {
                                             ]),
                                         m('div.card-body',u.desc),
                                         m('div.card-footer', 
-                                        [
-                                            m('div', u.technology.map(function(uv) { 
-                                                return m('span.chip', uv);      
+                                            [
+                                                m('div', u.technology.map(function(uv) { 
+                                                    return m('span.chip', uv);      
                                                                        
-                                            })),
-                                        ]  ),
+                                                })),
+                                            ]  ),
                                     ]),
                                 ]);      
                                                
+                        }),
+                    )],
+                )],
+            )];
+        case 'education':
+           
+            return [ m('div',
+                { class: 'container '},
+                [ m('div',
+                    {class: 'container '},
+                    [m('div',
+                        {class: 'columns '},
+                        vnode.attrs.values.map(function(u) { 
+                            console.log(u);
+                            return m('div', {class: 'column col-12 col-md-12  col-sm-12 col-xs-12 '},
+                                [ m('div.tile.mb-2', 
+                                            
+                                    [ 
+                                        m('div.tile-content',
+                                            [ m('p.tile-title',u.name),
+                                                m('p.tile-subtitle',u.institute),
+                                                m(`p.card-subtitle.text-gray`,u.location),
+                                            ]),
+                                        m('div.card-body',u.desc),
+                                    ]),
+                                ]);      
+                                                   
                         }),
                     )],
                 )],
