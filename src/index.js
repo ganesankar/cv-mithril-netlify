@@ -1,6 +1,8 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
+import 'construct-ui/lib/index.css';
+import 'spectre.css/dist/spectre.min.css';
+import 'spectre.css/dist/spectre-icons.min.css';
 /* Import all vendor.scss / css here[e.g. Import 'font-awesome/scss/font-awesome.scss';] */
 import { Routes, DefaultRoute } from './view/routes';
 
