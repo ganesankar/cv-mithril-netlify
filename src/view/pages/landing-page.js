@@ -12,7 +12,7 @@ var Data = {
         fetch: function() {
             m.request({
                 method: 'GET',
-                url: 'https://ganesan-cv-reactjs.netlify.com/.netlify/functions/cv-all',
+                url: 'https://ganesan-cv-reactjs.netlify.app/.netlify/functions/cv-all',
             })
                 .then(function(items) {
                     const contentdata = [];
